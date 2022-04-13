@@ -14,9 +14,8 @@ const localRouter = require('./router/localRouter');
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser())
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/css', express.static('public/css'))
-app.use('/js', express.static('public/js'))
+app.use('/public', express.static('public'));
+
 
 app.use(methodOverride('_method'));
 
