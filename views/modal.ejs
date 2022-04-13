@@ -1,0 +1,64 @@
+<!-- Modal -->
+
+<div class="modal fade" id="modal-edit-<%= _id %>" tabindex="1 " aria-labelledby="exampleModalLabel " aria-hidden="true ">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    <%=title%>
+                </h5>
+                <button type="button" id="closeBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="close_modal('<%=_id  %> ')"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" action="/modal/update/<%=_id  %> " method="post">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="<%=title%> ">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="desc" id="desc" placeholder="Description" value="<%=desc%>">
+                    </div>
+                    <div class=" mb-3 ">
+                        <input type="text " class="form-control " name="demo" id="demo " placeholder="Demo Link" value="<%=demo%>">
+                    </div>
+                    <div class="mb-3 ">
+                        <input type="text " class="form-control " name="github" id="github " placeholder="Github Link" value="<%=github%>">
+                    </div>
+                    <div class="mb-3 d-flex justify-content-between ">
+                        <label for="tag ">Tags</label>
+                        <button type="button " class="btn btn-primary " id="addBtn " onClick="add_tags('<%=_id  %> ',event)">Add</button>
+
+                    </div>
+                    <div class="tags-<%-_id  %>  ">
+                        <%tags.forEach(function(tag,index)  {%>
+                            <div class="mb-1 d-flex ">
+                                <input type="text " class="form-control " name="tags" id="tag " placeholder="Tag" value="<%=tag%> ">
+                                <button type="button " id="remove-<%=_id %>-<%=index%>" class="btn btn-danger ms-1 " onClick="remove_tag(this.id,event) ">-</button>
+
+                            </div>
+                            <% }); %>
+                    </div>
+
+                    <div class="  modal-footer mt-5 d-flex justify-content-between">
+                        <div class="col-6">
+
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="close_modal('<%=_id  %> ')">Close</button>
+                            <button type="submit " class="btn btn-primary ">Submit</button>
+                        </div>
+                </form>
+                <div class="row d-flex justify-content-between">
+                    <form action="/modal/<%=_id  %>?_method=DELETE" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+
+                        <div class="col-6">
+                            <button type="button" class="btn btn-danger" onClick="delete_submitting('<%=_id%>')">Delete</button>
+                            <%- include('delete_submitting',{_id}) -%>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

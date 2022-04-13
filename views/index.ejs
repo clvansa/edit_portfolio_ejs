@@ -1,0 +1,24 @@
+<%- include('header'); -%>
+
+    <h1>EJS
+
+    </h1>
+
+    <div class="container">
+        <div class="col-3">
+
+            <button class="btn btn-info" type="button" onClick="open_modal('add_new')">ADD</button>
+        </div>
+        <div class="row ">
+            <div class="col ">
+                <ul class="row m-2">
+                    <% projects.forEach(function(project){ %>
+                        <%- include('container/Card', {project: project}); %>
+                            <% }); %>
+                </ul>
+            </div>
+
+        </div>
+        <%- include('add_new') -%>
+    </div>
+    <%- include('footer'); -%>

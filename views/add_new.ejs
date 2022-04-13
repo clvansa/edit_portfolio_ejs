@@ -1,0 +1,49 @@
+<!-- Modal -->
+
+<div class="modal fade " id="add_new" tabindex="1 " aria-labelledby="exampleModalLabel " aria-hidden="true ">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                </h5>
+                <button type="button" id="closeBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="close_modal('add_new')"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" action="/modal/" method="post">
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="desc" id="desc" placeholder="Description" value="">
+                    </div>
+                    <div class=" mb-3 ">
+                        <input type="text " class="form-control " name="demo" id="demo " placeholder="Demo Link" value="">
+                    </div>
+                    <div class="mb-3 ">
+                        <input type="text " class="form-control " name="github" id="github " placeholder="Github Link" value="">
+                    </div>
+                    <div class="mb-3 d-flex justify-content-between ">
+                        <label for="tag ">Tags</label>
+                        <button type="button " class="btn btn-primary " id="addBtn " onClick="add_tags('add_new ',event)">Add</button>
+
+                    </div>
+                    <div class="tags-add_new">
+                        <div class="mb-1 d-flex ">
+                            <input type="text " class="form-control " name="tags" id="tag " placeholder="Tag" value=" ">
+                            <button type="button " id="1 " class="btn btn-danger ms-1 " onClick="remove_tag(this.id,event) ">-</button>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer mt-5 ">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="close_modal('add_new')">Close</button>
+                        <button type="submit " class="btn btn-primary ">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

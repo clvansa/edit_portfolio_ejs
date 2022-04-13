@@ -1,0 +1,32 @@
+<% let {title,demo,github,desc,tags,_id} = project;%>
+    <div class="card m-2" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+            <input type="text" hidden value="<% _id %>" hidden />
+            <h5 class="card-title">
+                <%=title%>
+
+
+            </h5>
+            <p class="card-text">
+                <%=desc%>
+            </p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <% tags.forEach(function(tag) { %>
+                <li class="list-group-item">
+                    <%=tag %>
+                </li>
+                <% }); %>
+
+        </ul>
+        <div class="py-3 card-body d-flex justify-content-between align-items-center">
+            <a href="<%=demo%>" class="card-link" target="_blank">Demo</a>
+            <a href="<%=github%>" class="card-link" target="_blank">github</a>
+            <!-- <form method="get" action="/modal/<%=_id%>"> -->
+            <button class="btn btn-outline-primary " name="modal" data-id="<%=_id  %> " id="modal-btn" value="open" data-target="#modal-edit<%= _id %>" onClick="open_modal('<%= _id %>')">Edit</button>
+            <!-- </form> -->
+        </div>
+
+        <%- include('../modal',{title,demo,github,desc,tags,_id}) -%>
+    </div>

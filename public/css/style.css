@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(233, 224, 224);
+}
+
+#modal-btn {
+    height: 40px;
+}
+
+.modal-submitting {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
